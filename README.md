@@ -18,7 +18,7 @@ Martians like Mysql but respect their Postgres friends. Migration to other SQL d
 
 Image processing to generate awesome thumbnails of the recipe photos you upload!
 
-## External services sependencies
+## External services dependencies
 
 ### Facebook and Google Authentication
 
