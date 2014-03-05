@@ -1,0 +1,62 @@
+<div class="wrapper sideBox-wrapper">
+  <div class="sideBox recipe">
+    <div class="sideBox-title">
+      <input type="text" maxlength="40" ng-model="recipe_form.title" blur-on-enter
+        ui-event="{ blur : 'applyChanges()' }" />
+      <a ui-sref='^' class="pull-right close-sideBox"><i class="icon-remove"></i></a>
+    </div>
+    <div class="sideBox-footer">
+      <ul>
+        <li>
+          <a href="" ng-class="{'disabled': cookbook.is_smart}"
+            bs-modal="'<%= asset_path("partials/delete-recipe-modal.html") %>'">
+            <i class="icon-trash"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="sideBox-scroll">
+      <div class="recipe-photos">
+        <div class="recipe-thumbnails">
+          <img ng-src="{{recipe.main_photo_url}}" />
+        </div>
+        <div class="recipe-actions">
+          <div fine-uploader upload-destination="api/recipes/{{recipe.id}}/upload_photo"
+              upload-extensions="jpg,jpeg,png,gif" after-upload="afterUploadPhoto">
+            <i class="icon-circle-arrow-up icon-white"></i>Upload Photo
+          </div>
+          <a ng-show="recipe.has_any_photo" ng-click="removePhoto()" title="Delete photo">
+            <div style="position:relative;overflow:hidden;direction:ltr;">
+              <i class="icon-remove icon-white"></i>Delete
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="recipe-options" ng-controller="RecipeOptionsCtrl">
+        <ul>
+          <li>
+            <a href="" ng-click="showChangeCookbookModal()" ng-controller="ChangeCookbookCtrl">
+              <i class="icon-book"></i> Cookbook
+            </a>
+            <span>{{recipe.cookbook.title || 'All Recipes'}}</span></li> <br />
+          <li ng-class="{inactive: !recipe_form.time}">
+            <a href="" ng-click="increaseTime()">
+            <i class="icon-time"></i>Time</a><span>{{recipe_form.time || 'not set'}}</span>
+          </li>
+          <li ng-class="{inactive: !recipe_form.guests}">
+            <a href="" ng-click="increaseGuests()">
+            <i class="icon-group"></i>Guests</a><span>{{recipe_form.guests || 'not set'}}</span></li>
+          <li ng-class="{inactive: !recipe_form.difficulty}">
+            <a href="" ng-click="increaseDifficulty()">
+            <i class="icon-exclamation-sign"></i>Difficulty</a><span>{{recipe_form.difficulty || 'not set'}}</span></li>
+        </ul>
+      </div>
+      <div class="recipe-note">
+        <textarea rows="18" ng-model="recipe_form.description"
+          ui-event="{ blur : 'applyChanges()' }"></textarea>
+      </div>
+      <!-- Bug de WebKit -->
+      <div class="footer-space"></div>
+    </div>
+  </div>
+</div>

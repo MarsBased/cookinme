@@ -1,0 +1,188 @@
+/* RECIPES STYLES */
+
+/* Recipes List */
+
+.recipes {
+  padding: 30px 0px 0px 0px;
+  overflow-y: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 48px;
+  bottom: 0;
+}
+
+.recipes .wrapper {
+  padding-bottom: 30px;
+  overflow: hidden;
+}
+
+.recipes .breadcrumbs {
+  margin: 8px 10px 10px 10px;
+  padding: 0px;
+  line-height: 1em;
+  height: 38px;
+}
+
+.recipes .breadcrumbs input {
+  width: 300px;
+  margin-bottom: 0px;
+}
+
+.recipes .breadcrumbs input.uneditable-input {
+  border: 1px solid rgba(0,0,0,0);
+  background: none;
+  cursor: text;
+}
+
+.recipes .breadcrumbs input.uneditable-input:hover {
+  background: none;
+  cursor: text;
+  color: #333;
+}
+
+@media all and (max-width: 530px) {
+  .recipes .breadcrumbs input {
+    width: 260px;
+    font-size: 1.1em;
+  }
+}
+
+/* Recipes */
+
+.recipe-thumb {
+  height: auto;
+  padding: 0px 0px 10px 0px;
+  margin: 15px 10px 10px 10px;
+  background: white;
+  float: left;
+  .box-shadow (0 1px 3px rgba(34, 25, 25, 0.4));
+  .border-radius (4px);
+}
+
+.wrapper .recipe-thumb, .wrapper .cookbook {
+  width: 214px;
+}
+
+.open-sideBox .wrapper .recipe-thumb {
+  width: 198.5px;
+}
+
+@media all and (max-width: 1220px) {
+  .wrapper .recipe-thumb, .wrapper .cookbook {
+    width: 214px;
+  }
+  .open-sideBox .wrapper .recipe-thumb {
+    width: 188px;
+  }
+}
+
+@media all and (max-width: 1100px) {
+  .wrapper .recipe-thumb, .wrapper .cookbook {
+    width: 189px;
+  }
+  .open-sideBox .wrapper .recipe-thumb {
+    width: 188px;
+  }
+}
+
+@media all and (max-width: 860px) {
+  .wrapper .recipe-thumb, .wrapper .cookbook {
+    width: 213px;
+  }
+  .open-sideBox .wrapper .recipe-thumb {
+    width: 188px;
+  }
+}
+
+@media all and (max-width: 720px) {
+  .wrapper .recipe-thumb, .wrapper .cookbook {
+    width: 226px;
+  }
+  .open-sideBox .wrapper .recipe-thumb {
+    width: 188px;
+  }
+}
+
+@media all and (max-width: 530px) {
+  .wrapper .recipe-thumb, .wrapper .cookbook {
+    width: -webkit-calc(70% - 23px);
+    width: -moz-calc(70% - 23px);
+    width: calc(70% - 23px);
+    display: block;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+  .open-sideBox .wrapper .recipe-thumb {
+    width: 188px;
+  }
+}
+
+.recipe-thumb img {
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  .border-radius (4px 4px 0px 0px);
+}
+
+.recipe-thumb:hover img {
+  opacity: 0.95;
+}
+
+.recipe-thumb h2 {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0px 20px 0px 14px;
+  height: 40px;
+  color: black;
+  font-weight: 400;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.recipe-thumb h2 span {
+  color: #b8b8b8;
+  font-size: 0.95em;
+  display: block;
+}
+
+/* Cookbooks */
+
+.cookbook {
+  height: auto;
+  padding: 0px 0px 10px 0px;
+  margin: 15px 10px 10px 10px;
+  background: white;
+  float: left;
+  .box-shadow (0 1px 3px rgba(34, 25, 25, 0.4));
+  .border-radius (4px);
+}
+
+.cookbook:hover {
+  opacity: 0.95;
+}
+
+.cookbook .cookbook-thumbs {
+  overflow: hidden;
+  .border-radius (4px 4px 0px 0px);
+  padding: 0px 0px 8px 0px;
+}
+
+.cookbook img {
+  width: 50%;
+  float: left;
+}
+
+.cookbook img.empty-recipe {
+  opacity: 0.2;
+}
+
+.cookbook h2 {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0px 20px 0px 14px;
+  height: 40px;
+  color: black;
+  font-weight: 400;
+  text-align: center;
+  word-wrap: break-word;
+}

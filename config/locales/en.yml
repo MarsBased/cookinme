@@ -1,0 +1,23 @@
+en:
+  def:
+    smart_cookbooks:
+      all_recipes: "All recipes"
+    cookbook:
+      no_title: "Your new cookbook"
+    recipe:
+      no_title: "Your new recipe"
+    options:
+      delete: "Delete"
+      title: "Title"
+      most_recent: "Most recent"
+  layouts:
+    navbar:
+      about: "About"
+      blog: "Blog"
+      privacy: "Privacy Policy"
+      settings: "Settings"
+      signout: "Sign out"
+      add_recipe: "Recipe"
+  cookbooks:
+    index:
+      title: "Cookbooks"

@@ -1,0 +1,26 @@
+<!-- Cookbooks list -->
+<div class="recipes">
+  <div class="wrapper">
+    <p class="breadcrumbs">
+      <span ng-model="filterModel" class="pull-right flat-btn-toggle"
+        bs-buttons-radio>
+        <button value="-id">Most Recent</button>
+        <button value="+title">Title</button>
+      </span>
+    </p>
+    <!-- Cookbooks -->
+    <div ng-repeat="cookbook in cookbooks | orderBy:['-is_smart',filterModel]"
+      class="reveal-animation">
+      <a ui-sref="cookbook({cookbookId: cookbook.id})" >
+        <div class="cookbook">
+          <div class="cookbook-thumbs">
+            <div ng-repeat="image in cookbook.cover_images track by $index">
+              <img ng-src="{{image}}" alt="Food Example" />
+            </div>
+          </div>
+          <h2>{{cookbook.title}}</h2>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

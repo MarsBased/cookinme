@@ -1,0 +1,12 @@
+//= require jquery
+//= require jquery_ujs
+//= require twitter/bootstrap
+//= require lib/underscore
+//= require lib/jquery.fineuploader-3.6.4
+//= require lib/angular
+//= require lib/angular-resource
+//= require lib/angular-animate
+//= require lib/angular-ui-router
+//= require lib/angular-ui-utils
+//= require lib/angular-strap
+//= require_tree ./angular

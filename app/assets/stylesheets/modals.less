@@ -1,0 +1,201 @@
+/* Modals */
+
+.modal {
+  background: white;
+}
+
+@media all and (max-width: 720px) {
+  .modal {
+    width: 500px;
+    margin-left: -250px;
+  }
+}
+
+@media all and (max-width: 530px) {
+  .modal {
+    width: 400px;
+    margin-left: -200px;
+  }
+}
+
+.modal-header {
+  overflow: hidden;
+  border-bottom: 1px solid @cookin-active;
+  padding: 0px;
+}
+
+.modal-header .close-modal {
+  padding: 2px 6px;
+  border: 1px solid @cookin-active;
+  .border-radius (4px);
+  color: @cookin-text;
+  opacity: 0.6;
+  margin: 7px 8px 0px 0px;
+}
+
+.modal-header .close-modal:hover {
+  background: @cookin-active;
+  text-decoration: none;
+}
+
+.modal-header h3 {
+  font-size: 1.2em;
+  font-weight: 200;
+  line-height: 1.4em;
+  padding: 4px 10px;
+  text-shadow: 0 1px 0 white;
+  margin: 5px;
+  float: left;
+  background: none;
+  display: block;
+  height: auto;
+  color: @cookin-text;
+}
+
+.modal-body {
+  max-height: 400px;
+  padding: 15px 20px;
+}
+
+.modal-footer {
+  height: 35px;
+  padding: 8px 15px 3px;
+  background: none;
+}
+
+.modal-footer .flat-btn {
+  margin-top: -2px;
+}
+
+.modal form {
+  margin: 0px;
+}
+
+.modal label {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  text-shadow: 0 1px 0 white;
+  font-weight: 500;
+  color: rgb(129, 129, 129);
+}
+
+.modal .control-group {
+  margin-bottom: 0px;
+}
+
+.modal .control-group .flat-btn {
+  margin-bottom: 10px;
+}
+
+.modal form input {
+  display: block;
+}
+
+.modal .flat-input {
+  width: 260px;
+}
+
+.modal .flat-input.input-block-level {
+  width: 100%;
+}
+
+/* Settings Modal */
+
+.select-avatar img {
+  margin: 5px 0px 14px 0px;
+  width: 120px;
+  display: block; 
+  .border-radius (100px);
+}
+
+.select-avatar .flat-btn {
+  text-align: center;
+  display: block;
+  margin-bottom: 8px;
+}
+
+@media all and (max-width: 530px) {
+
+  .select-avatar.pull-right {
+    float: none;
+  }
+  
+  .select-avatar .btn-block {
+    display: inline-block;
+    width: auto;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+}
+
+/* Share Modal */
+
+.share-buttons {
+  margin: 10px 0px 0px;
+}
+
+.share-buttons li {
+  display: inline;
+  margin-right: 4px;
+}
+
+.share-buttons li:last-child {
+  margin-top: 5px;
+  margin-right: 0px;
+  font-size: 1.5em;
+  color: #B5B5B5;
+}
+
+.share-buttons li a {
+  width: 16px;
+  text-align: center;
+}
+
+.share-buttons li a i {
+  opacity: 0.6;
+  font-size: 1.2em;
+  margin-top: 2px;
+  vertical-align: -1px;
+}
+
+.share-buttons li.active a i {
+  color: white;
+  opacity: 1;
+}
+
+.share-buttons li a.twitter-icon i {
+  margin-left: -1px;
+}
+
+.share-buttons li.active a.facebook-icon {
+  background: @facebook;
+  border-color: @facebook;
+}
+
+.share-buttons li.active a.twitter-icon {
+  background: @twitter;
+  border-color: @twitter;
+}
+
+.share-buttons li.active a.google-plus-icon {
+  background: @googleplus;
+  border-color: @googleplus;
+}
+
+/* Move to Cookbook Modal */
+
+#moveCookbook .modal-body input {
+  margin-bottom: 15px;
+}
+
+#moveCookbook .modal-body .flat-btn {
+  display: block;
+  margin-bottom: 8px;
+}
+
+#moveCookbook .modal-body .flat-btn.active {
+  background: @cookin-active;
+}
+
+

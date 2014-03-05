@@ -1,0 +1,40 @@
+'use strict'
+
+settingsCtrl = ($scope, $modal, $window, User) ->
+
+  $scope.showSettingsModal = ->
+    $scope.user_form = angular.copy($scope.current_user, new User)
+    $modal
+      template: '<%= asset_path("partials/settings.html") %>'
+      persist: true
+      show: true
+      scope: $scope
+
+  $scope.save = ->
+    $scope.errors = {}
+
+    success = (result) ->
+      _.extend $scope.current_user, $scope.user_form
+      $scope.hide()
+
+    error = (result) ->
+      angular.forEach result.data, (errors, field) ->
+        $scope.form[field].$setValidity 'server', false
+        $scope.errors[field] = errors.join(', ')
+    
+    $scope.user_form.$update {}, success, error
+
+  $scope.afterUploadAvatar = (responseJSON) ->
+    _.extend $scope.user_form, responseJSON
+    _.extend $scope.current_user, $scope.user_form
+
+  $scope.removeAvatar = ->
+    $scope.user_form.$remove_avatar (recipe) ->
+      _.extend $scope.current_user, $scope.user_form
+
+  $scope.deleteUser = ->
+    $scope.user_form.$remove ->
+      $window.location.href = "/";
+
+angular.module('cookinme.controllers').
+  controller 'SettingsCtrl', ['$scope', '$modal', '$window', 'User', settingsCtrl]

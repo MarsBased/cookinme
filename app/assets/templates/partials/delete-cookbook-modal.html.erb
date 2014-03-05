@@ -1,0 +1,13 @@
+<div class="modal-header">
+  <a href="" class="pull-right close-modal" data-dismiss="modal" aria-hidden="true" title="Close"><i class="icon-remove"></i></a>
+  <h3>Delete "{{cookbook.title}}"?</h3>
+</div>
+<div class="modal-body">
+  <p>Your cookbook will be deleted. Are you sure you want to continue?</p>
+</div>
+<div class="modal-footer">
+  <a href="" data-dismiss="modal" class="flat-btn small-btn" title="Cancel">Cancel</a>
+  <a href="" class="flat-btn small-btn" ng-click="removeCookbook();hide()" title="Delete">
+    Delete
+  </a>
+</div>

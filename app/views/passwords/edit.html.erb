@@ -1,0 +1,23 @@
+<div class="login">
+  <div class="loginBox">
+    <%= render "shared/login_toggle", active: "sign_in" %>
+    <%= form_for @user, url: password_path(@user), :method => :put do |f| %>
+      <div class="legend">
+        <p><strong>Password recovery</strong></p>
+        <p>Introduce a new password for your account.</p>
+      </div>
+      <div class="login-inputs">
+        <%= hidden_field_tag :token, @token %>
+        <%= f.password_field :password, class: "input-block-level flat-input small-input",
+          placeholder: "New password" %>
+        <%= f.password_field :password_confirmation, class: "input-block-level flat-input small-input", placeholder: "Confirm new password" %>
+        <button class="flat-btn normal-btn">Submit</button>
+        <p class="forgotPassword">
+          <a href="http://support.marsbased.com" title="Still having problems? Visit our Help Center">
+            Still having problems? Visit our Help Center
+          </a>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>

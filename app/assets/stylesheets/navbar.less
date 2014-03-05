@@ -1,0 +1,122 @@
+/* Navbar */
+
+.navbar {
+  width: 100%;
+  font-weight: 200;
+  background: #fff;
+  .box-shadow (0 1px 1px rgba(34, 25, 25, 0.5));
+  position: fixed;
+  z-index: 150;
+  top: 0;
+}
+
+.navbar img.logo {
+  position: absolute;
+  left:0;
+  right:0;
+  top: -15px;
+  width: 130px;
+  margin: 0px auto;
+  .transition (top .4s);
+}
+
+.navbar img.logo:hover {
+  top: -10px;
+}
+
+@media all and (max-width: 530px) {
+  .navbar img.logo {
+    display: none;
+  }
+}
+
+.app .navbar-link {
+  color: @cookin-text;
+  font-weight: 300;
+  border-left: 1px solid @cookin-active;
+  border-right: 1px solid @cookin-active;
+  padding: 10px 15px;
+  line-height: 2em;
+  .transition (background .2s);
+  .transition (border linear .2s);
+}
+
+.app .navbar-link:hover, .app .navbar-link.open {
+  text-decoration: none;
+  background: @cookin-active;
+}
+
+.navbar-link.avatar img {
+  width: 27px;
+  margin: -3px 10px 0px 0px;
+  .border-radius (20px);
+}
+
+.navbar-link.cookbook-link {
+  border-left: 0px;
+}
+
+.navbar-link.dropdown {
+  border-right: 0px;
+  padding: 0px;
+}
+
+.navbar-link.dropdown a:hover {
+  text-decoration: none;
+}
+
+.navbar-link.dropdown .settings-link, .navbar-link.dropdown .about-link {
+  padding: 10px 15px;
+  line-height: 2em;
+  color: @cookin-text; 
+  display: block; 
+}
+
+.navbar-link.dropdown .about-link {
+  border-right: 1px solid @cookin-active;
+}
+
+.navbar-link.dropdown .settings-link:focus, .navbar-link.dropdown .about-link:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+.navbar .navbar-link>.dropdown-menu:before {
+  position: absolute;
+  top: -7px;
+  display: inline-block;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #ccc;
+  border-left: 7px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  content: '';
+  right: 12px;
+  left: auto;
+}
+
+.navbar .navbar-link>.dropdown-menu:after {
+  right: 13px;
+  left: auto;
+  position: absolute;
+  top: -6px;
+  display: inline-block;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #ffffff;
+  border-left: 6px solid transparent;
+  content: '';
+}
+
+.dropdown-menu>li>a {
+  font-size: 0.9em;
+  padding: 3px 15px;
+}
+
+.dropdown-menu>li>a:hover {
+  background: @cookin-active;
+  color: @cookin-text;
+}
+
+.dropdown-menu .divider {
+  margin: 4px 0px;
+}
+

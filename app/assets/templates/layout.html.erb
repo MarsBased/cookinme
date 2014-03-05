@@ -1,0 +1,37 @@
+<div class="app" ng-class="{'open-sideBox': $state.current.name=='recipe'}">
+  <!-- Navbar -->
+  <header>
+    <div class="navbar">
+      <div class="wrapper navbar-wrapper">
+        <a href="#">
+          <img class="logo" src="<%= asset_path("logo_flat.png") %>" alt="Cookin.me"
+            title="Cookin.me logo" />
+        </a>
+        <a class="navbar-link avatar pull-left" ui-sref='cookbooks'
+          title="{{current_user.username}}">
+          <img ng-src="{{current_user.avatar_url}}" title="{{current_user.username}}"
+            alt="{{current_user.username}}" />My Cookbooks
+        </a>
+        <div ui-view="header"></div>
+        <div class="navbar-link dropdown pull-right">
+          <a class="settings-link" data-toggle="dropdown" href="" title="Settings">
+            Settings
+            <img src="<%= asset_path("dropdown_icon.png") %>" title="Settings" alt="Settings" />
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="http://marsbased.com/about" title="About">About</a></li>
+            <li><a href="http://marsbased.com/blog" title="Blog">Blog</a></li>
+            <li class="divider"></li>
+            <li>
+              <a ng-click="showSettingsModal()" ng-controller="SettingsCtrl" href="">
+                Settings
+              </a>
+            </li>
+            <li><a href="" ng-click="signOut()" title="Sign out">Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div ui-view="main" class="reveal-animation"></div>
+</div>

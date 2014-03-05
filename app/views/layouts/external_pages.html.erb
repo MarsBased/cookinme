@@ -1,0 +1,31 @@
+<% content_for :template do %>
+  <div class="app">
+    <!-- Navbar -->
+    <header>
+      <div class="navbar">
+        <div class="wrapper navbar-wrapper">
+          <%= link_to root_path, title: "Cookin.me" do %>
+            <%= image_tag "logo_flat.png", alt: "Cookin.me logo", class: "logo" %>
+          <% end %>
+          <div class="pull-right navbar-link dropdown">
+            <a class="about-link" data-toggle="dropdown" href="#" title="Settings">
+              About
+              <%= image_tag "dropdown_icon.png", title: "Settings", alt: "Settings" %>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="http://www.marsbased.com" title="MarsBased">MarsBased</a></li>
+              <li><a href="http://blog.marsbased.com" title="Blog">Blog</a></li>
+              <li><a href="http://support.marsbased.com" title="Support">Support</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <%= yield %>
+    </div>
+  </div>
+<% end %>
+
+<%= render :template => 'layouts/application' %>

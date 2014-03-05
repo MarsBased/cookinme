@@ -1,0 +1,292 @@
+/* SIDEBOX STYLES */
+
+/* SideBox */
+
+.sideBox {
+  display: none;
+  position: fixed;
+  top: 76px;
+  bottom: 20px;
+  z-index: 1;
+  background: #ffffff;
+  height: auto;
+  width: 489px;
+  .box-shadow (0 1px 3px rgba(34, 25, 25, 0.4));
+  .border-radius (4px);
+}
+
+@media all and (max-width: 1100px) {
+  .sideBox {
+    left: 0px;
+    right: 0px;
+    margin: 0px auto;
+    position: absolute;
+  }
+}
+
+.open-sideBox .sideBox {
+  display: block;
+}
+
+.sideBox .close-sideBox {
+  padding: 2px 6px;
+  border: 1px solid @cookin-active;
+  .border-radius (4px);
+  color: @cookin-text;
+  opacity: 0.6;
+  margin: 7px 8px 0px 0px;
+}
+
+.sideBox .close-sideBox:hover {
+  background: @cookin-active;
+  text-decoration: none;
+}
+
+.sideBox-title {
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: fixed;
+  z-index: 120;
+  width: 489px;
+}
+
+.sideBox-title input {
+  font-size: 1.2em;
+  font-weight: 200;
+  line-height: 1em;
+  padding: 4px 10px;
+  margin: 5px;
+  float: left;
+  background: none;
+  border: 1px solid rgba(0,0,0,0);
+  .box-shadow (none);
+  -webkit-transition: background .2s, border linear .2s;
+  -moz-transition: background .2s, border linear .2s;
+  -o-transition: background .2s, border linear .2s;
+  transition: background .2s, border linear .2s;
+  display: block;
+  height: auto;
+  color: @cookin-text;
+  width: 380px;
+}
+
+.sideBox-title input:hover {
+  border: 1px solid rgba(0,0,0,0);
+  background: @cookin-active;
+  cursor: pointer;
+}
+
+.sideBox-title input:focus {
+  border: 1px solid rgba(0,0,0,0);
+  background: @cookin-active;
+  cursor: text;
+  .box-shadow (none);
+}
+
+.sideBox-title input.uneditable-input {
+  border: 1px solid rgba(0,0,0,0);
+  background: none;
+  cursor: text;
+}
+
+.sideBox-scroll {
+  overflow-y: scroll;
+  position: fixed;
+  top: 117px;
+  bottom: 55px;
+  width: 489px;
+}
+
+.sideBox-footer {
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  position: fixed;
+  z-index: 120;
+  bottom: 20px;
+  height: 35px;
+  width: 489px;
+}
+
+.sideBox-footer ul {
+  margin: 8px 0px 0px 0px;
+  padding: 0px 20px;
+}
+
+.sideBox-footer ul li {
+  display: inline;
+  float: right;
+  margin-left: 20px;
+}
+
+.sideBox-footer ul li a {
+  opacity: 0.6;
+  color: @cookin-text;
+}
+
+.sideBox-footer ul li a:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+/* Bug de WebKit */
+
+.footer-space {
+  height: 20px;
+}
+
+
+/* Recipe Photos */
+
+.recipe-photos {
+  display: block;
+  overflow: hidden;
+  height: 320px;
+  padding: 15px;
+}
+
+.recipe-thumbnails {
+  overflow: hidden;
+  margin: auto;
+}
+
+.recipe-photos img {
+  margin: 0px auto;
+  display: block;
+  .border-radius (4px);
+  width: 100%;
+}
+
+.recipe-actions {
+  display: inline;
+  float: right;
+  margin-right: 20px;
+  position: relative;
+  opacity: 0;
+  top: -50px;
+  .transition (opacity .2s);
+  cursor: pointer;
+}
+
+.recipe-actions div {
+  float: right;
+  background: white;
+  color: @cookin-text;
+  .border-radius (18px);
+  padding: 6px 10px;
+  font-size: 1em;
+  margin-left: 5px;
+  opacity: 0.6;
+}
+
+.recipe-photos:hover .recipe-actions {
+  opacity: 1;
+}
+
+.recipe-actions div:hover {
+  opacity: 1;
+}
+
+.recipe-actions div i {
+  margin: 0px 5px 0px -1px;
+}
+
+/* Recipe Options */
+
+.recipe-options {
+  overflow: hidden;
+  margin: 0px 15px;
+}
+
+.recipe-options ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+.recipe-options ul li {
+  display: inline-block;
+  font-size: 1em;
+  margin: 0px 5px 10px 0px;
+  color: @cookin-active;
+  border: 1px solid @cookin-active;
+  .border-radius (4px);
+  font-weight: 400;
+}
+
+.recipe-options ul li i {
+  margin-right: 3px;
+}
+
+.recipe-options ul li span {
+  color: @cookin-text;
+  padding: 4px 8px;
+  text-transform: none;
+  border-left: 1px solid @cookin-active;
+  display: inline-block;
+  text-align: right;
+}
+
+.recipe-options ul li.inactive span {
+  color: @cookin-active;
+  font-weight: 400;
+}
+
+.recipe-options ul li a {
+  color: @cookin-text;
+  text-decoration: none;
+  padding: 6px 8px;
+  -webkit-transition: background .2s, color .2s;
+  -moz-transition: background .2s, color .2s;
+  -o-transition: background .2s, color .2s;
+  transition: background .2s, color .2s;
+}
+
+.recipe-options ul li a:hover {
+  background: @cookin-active;
+  color: @cookin-text;
+}
+
+/* Recipe Note */
+
+.recipe-note {
+  font-weight: normal;
+  line-height: 1.7em;
+  margin: 5px 15px 0px 15px;
+}
+
+.recipe-note textarea {
+  display: block;
+  width: 100%;
+  .box-shadow (none);
+  resize: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  margin-bottom: 0px;
+  font-weight: 200;
+  .box-sizing (border-box);
+  color: @cookin-text;
+  line-height: 1.8em;
+  overflow: hidden;
+  border: 1px dashed @cookin-active;
+  -webkit-transition: background .2s, box-shadow .2s;
+  -moz-transition: background .2s, box-shadow .2s;
+  -o-transition: background .2s, box-shadow .2s;
+  transition: background .2s, box-shadow .2s;
+}
+
+.recipe-note textarea:hover {
+  cursor: pointer;
+  background: @cookin-active;
+}
+
+.recipe-note textarea:focus {
+  cursor: text;
+  background: @cookin-active;
+}
+
+.recipe-note textarea.uneditable-input {
+  border: 1px solid rgba(0,0,0,0);
+  background: none;
+  cursor: text;
+  height: auto;
+  white-space: normal;
+}

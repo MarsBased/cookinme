@@ -1,0 +1,40 @@
+<div ui-view class="reveal-recipe-animation"></div>
+<div class="recipes">
+  <div class="wrapper">
+    <p class="breadcrumbs">
+
+      <!-- Cookbook Title Input -->
+      <input type="text" class="flat-input normal-input"
+        ng-model="cookbook_form.title" blur-on-enter
+        ui-event="{ blur : 'updateTitle()' }"
+        ng-disabled="cookbook.is_smart"
+        maxlength="40" 
+        ng-class="{'uneditable-input': cookbook.is_smart}"/>
+
+      <!-- Filters -->
+      <span ng-model="filterModel" class="pull-right flat-btn-toggle" bs-buttons-radio>
+        <button class="active" value="-id">Most Recent</button>
+        <button value="+title">Title</button>
+      </span>
+
+      <!-- Delete cookbook -->
+      <button href="" class="flat-icon pull-right"
+        ng-class="{disabled: cookbook.is_smart}"
+        ng-disabled="cookbook.is_smart"
+        bs-modal="'<%= asset_path("partials/delete-cookbook-modal.html") %>'">
+        <i class="icon-trash icon-2x"></i>
+      </button>
+    </p>
+
+    <!-- Recipes List -->
+    <div ng-repeat="recipe in cookbook.recipes | orderBy:filterModel"
+      class="reveal-recipe-animation">
+      <a ui-sref="recipe({recipeId: recipe.id})" >
+        <div class="recipe-thumb">
+          <img ng-src="{{recipe.main_photo_url_small}}" alt="{{recipe.title}}" />
+          <h2 bind-with-animation="recipe.title" />
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

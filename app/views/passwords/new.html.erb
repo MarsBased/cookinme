@@ -1,0 +1,19 @@
+<div class="login">
+  <div class="loginBox">
+    <%= render "shared/login_toggle", active: "sign_in" %>
+    <%= form_for :password, url: passwords_path do |f| %>
+      <div class="legend">
+        <p><strong>Forgot your password?</strong></p>
+        <p>Enter your email address and we'll send you the password recovery link.</p>
+      </div>
+      <div class="login-inputs">
+        <%= f.email_field :email, class: "input-block-level flat-input small-input", 
+          placeholder: "Email" %>
+        <button class="flat-btn normal-btn">Submit</button>
+        <p class="forgotPassword">
+          <a href="http://support.marsbased.com" title="Still having problems? Visit our Help Center">Still having problems? Visit our Help Center</a>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>

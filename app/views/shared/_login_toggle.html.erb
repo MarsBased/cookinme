@@ -1,0 +1,8 @@
+<div class="login-toggle">
+  <span class="flat-btn-toggle">
+    <%= link_to("Sign in", sign_in_path,
+      class: "#{'active' if active == 'sign_in'}") %>
+    <%= link_to("New account", sign_up_path,
+      class: "#{'active' if active == 'sign_up'}") %>
+  </span>
+</div>

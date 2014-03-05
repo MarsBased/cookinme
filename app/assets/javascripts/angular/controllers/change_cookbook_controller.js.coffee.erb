@@ -1,0 +1,57 @@
+'use strict'
+
+# Controls the modal to change the coockbook of a recipe.
+changeCookbookCtrl = ($scope, $modal, $state, $timeout, Cookbook, Recipe) ->
+
+  # Prompts the change cookbook selection modal.
+  $scope.showChangeCookbookModal = ->
+    $scope.cookbooks = Cookbook.query()
+    $modal
+      template: '<%= asset_path("partials/change-cookbook.html") %>'
+      persist: true
+      show: true
+      scope: $scope
+
+  # Checks if the destination cookbook is the same as the current cookbook.
+  needsUpdate = (cookbookId) ->
+    if $scope.recipe.cookbook
+      $scope.recipe.cookbook.id != cookbookId
+    else
+      cookbookId != "all-recipes"
+
+  # Updates the cookbook of the recipe and redirects the user to the new state.
+  updateCookbook = (cookbookId) ->
+    if cookbookId == "all-recipes"
+      $scope.removeCookbook();
+    else
+      $scope.recipe_form.$update_cookbook {cookbook_id: cookbookId}, (recipe) ->
+        $scope.hide()
+        $timeout ->
+          $state.go "recipe",
+            cookbookId: recipe.cookbook.id
+            recipeId: recipe.id
+        , 350
+
+  $scope.updateCookbook = (cookbookId) ->
+    if needsUpdate(cookbookId)
+      updateCookbook(cookbookId)
+    else
+      $scope.hide()
+
+  $scope.removeCookbook = ->
+    $scope.recipe_form.$remove_cookbook (recipe) ->
+      $scope.hide()
+      $timeout ->
+        $state.go "recipe",
+          cookbookId: "all-recipes"
+          recipeId: recipe.id
+      , 350
+
+  $scope.isActive = (cookbook_id) ->
+    if !$scope.recipe.cookbook then (cookbook_id == "all-recipes") else
+      (cookbook_id==$scope.recipe.cookbook.id)
+
+angular.module('cookinme.controllers').
+  controller 'ChangeCookbookCtrl',
+    ['$scope', '$modal', '$state', '$timeout','Cookbook',
+    'Recipe', changeCookbookCtrl]

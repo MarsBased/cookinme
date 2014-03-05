@@ -1,0 +1,104 @@
+<form name="form" novalidate>
+  <div class="modal-header">
+    <a href="" class="pull-right close-modal" data-dismiss="modal" aria-hidden="true" title="Close"><i class="icon-remove"></i></a>
+    <h3>Settings</h3>
+  </div>
+  <div class="modal-body">
+    <div class="pull-right select-avatar">
+      <img ng-src="{{user_form.avatar_url}}" alt="{{user_form.username}}"
+        title="{{user_form.avatar_url}}" />
+      <div class="flat-btn small-btn" title="Upload Photo"
+        fine-uploader upload-destination="api/current_user/upload_avatar"
+        upload-extensions="jpg,jpeg,png,gif" after-upload="afterUploadAvatar">
+          Upload New
+      </div>
+      <a href="" ng-show="user_form.has_avatar" ng-click="removeAvatar()"
+        class="flat-btn small-btn" title="Delete Photo">
+        Delete Photo
+      </a>
+    </div>
+    <div class="control-group">
+      <label>Name</label>
+      <div class="controls">
+        <input type="text" class="flat-input small-input" ng-model="user_form.username"
+          placeholder="Your name" name="username" required />
+        <p class="text-error" ng-show="form.username.$dirty && form.username.$invalid">
+          <span ng-show="form.username.$error.required">
+            Your name is required
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="control-group">
+      <label>Email</label>
+      <div class="controls">
+        <input type="email" class="flat-input small-input" ng-model="user_form.email"
+          name="email" required placeholder="Your email" server-error />
+          <p class="text-error" ng-show="form.email.$dirty && form.email.$invalid">
+            <span ng-show="form.email.$error.server">{{ errors.email }}</span>
+            <span ng-show="form.email.$error.required">
+              The email is required
+            </span>
+            <span ng-show="form.email.$error.email">
+              The email is not valid
+            </span>
+          </p>
+      </div>
+    </div>
+
+    <div ng-show="!change_password_visible && !user_form.is_external" class="control-group">
+      <label>Password</label>
+      <div class="controls">
+        <a ng-click="delete_visible=false;change_password_visible=true"
+          href="" class="flat-btn small-btn" title="Change Password">
+          Change Password
+        </a>
+      </div>
+    </div>
+
+    <!-- Show when change password is clicked Change Password -->
+    <div ng-show="change_password_visible" class="control-group">
+      <label>Password</label>
+      <div class="controls">
+        <input class="flat-input small-input" type="password" placeholder="Current Password">
+        <input class="flat-input small-input" type="password" placeholder="New Password">
+        <input class="flat-input small-input" type="password" placeholder="Confirm New Password">
+        <a ng-click="change_password_visible=false;" href="" class="flat-btn small-btn"
+          title="Cancel">
+          Cancel
+        </a>
+        <a href="" class="flat-btn small-btn" title="Change Password">Change Password</a>
+      </div>
+    </div>
+    <div ng-show="!delete_visible" class="control-group">
+      <label>Delete Account</label>
+      <div class="controls">
+        <a ng-click="delete_visible=true;change_password_visible=false"
+          class="flat-btn small-btn" title="Delete Account">
+          Delete Account
+        </a>
+      </div>
+    </div>
+    <!-- Quan cliques sobre Delete Account-->
+    <div ng-show="delete_visible" class="control-group">
+      <label>Delete Account</label>
+      <div class="controls">
+        <p>Are you sure that you want to delete your account?</p>
+        <a ng-click="delete_visible=false" class="flat-btn small-btn"
+          title="Cancel">
+          Cancel
+        </a>
+        <a class="flat-btn small-btn" title="Delete Account"
+          ng-click="deleteUser()">
+          Delete Account
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="" title="Cancel" data-dismiss="modal" class="flat-btn small-btn">Cancel</a>
+    <button ng-click="save()" ng-disabled="form.$invalid" title="Save changes" class="flat-btn small-btn">
+      Save changes
+    </button>
+  </div>
+</form>

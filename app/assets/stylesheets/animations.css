@@ -1,0 +1,49 @@
+.reveal-animation.ng-enter {
+ -webkit-transition: 0.5s linear all; /* Safari/Chrome */
+ transition: 0.5s linear all; /* All other modern browsers and IE10+ */
+
+ /* The animation preparation code */
+ opacity: 0;
+}
+
+.reveal-animation.ng-enter.ng-enter-active {
+ /* The animation code itself */
+ opacity: 1;
+}
+
+.reveal-animation.ng-leave {
+ -webkit-transition: 0.2s linear all; /* Safari/Chrome */
+ transition: 0.2s linear all; /* All other modern browsers and IE10+ */
+
+ /* The animation preparation code */
+ opacity: 1;
+}
+
+.reveal-animation.ng-leave.ng-leave-active {
+ /* The animation code itself */
+ opacity: 0;
+}
+
+/* Reveal Recipe animation */
+.reveal-recipe-animation.ng-enter {
+ -webkit-transition: 0.6s linear all; /* Safari/Chrome */
+ transition: 0.6s linear all; /* All other modern browsers and IE10+ */
+
+ /* The animation preparation code */
+ opacity: 0;
+}
+
+.reveal-recipe-animation.ng-enter.ng-enter-active {
+ /* The animation code itself */
+ opacity: 1;
+}
+
+.reveal-recipe-animation.ng-leave {
+  -webkit-transition: 0.4s linear all; /* Safari/Chrome */
+ transition: 0.4s linear all; /* All other modern browsers and IE10+ */
+  opacity: 1;
+}
+
+.reveal-recipe-animation.ng-leave.ng-leave-active {
+  opacity: 0;
+}

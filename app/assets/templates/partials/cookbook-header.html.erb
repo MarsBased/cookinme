@@ -1,0 +1,8 @@
+<a ui-sref="cookbook({id: cookbook.id})" class="navbar-link cookbook-link pull-left"
+  title="{{cookbook.title}}">
+  {{cookbook.title}}
+</a>
+<a class="navbar-link add-recipe pull-right" href="" ng-click="addRecipe()">
+  Recipe
+  <img src="<%= asset_path("add_icon.png") %>" title="Add cookbook" alt="Add cookbook" />
+</a>

@@ -1,0 +1,331 @@
+@import "variables";
+@import "navbar";
+@import "sidebox";
+@import "modals";
+@import "login";
+@import "recipes";
+
+/* GENERAL STYLES */
+
+/* General */
+
+body {
+  padding: 0px;
+  min-width: 1080px;
+  background: @cookin-bg;
+}
+
+.text-error {
+  color: @cookin-red;
+}
+
+/* Links and Buttons */
+
+.app a {
+  color: @cookin-red;
+}
+
+.flat-btn {
+  font-weight: 200;
+  -webkit-transition: background .2s, border linear .2s;
+  -moz-transition: background .2s, border linear .2s;
+  -o-transition: background .2s, border linear .2s;
+  transition: background .2s, border linear .2s;
+  border: 1px solid @cookin-active;
+  .border-radius (4px);
+  color: @cookin-text;
+  cursor: pointer;
+  display: inline-block;
+  background: none;
+}
+
+.flat-btn:hover {
+  background: @cookin-active;
+  text-decoration: none;
+  color: @cookin-text;
+}
+
+.flat-btn.small-btn {
+  font-size: 1em;
+  padding: 6px 10px;
+}
+
+.flat-btn.normal-btn {
+  font-size: 1.2em;
+  padding: 8px 12px;
+}
+
+.app .flat-btn.facebook-btn {
+  background: @facebook;
+  color: white; 
+  border: 0px;
+}
+
+.app .flat-btn.twitter-btn {
+  background: @twitter;
+  color: white; 
+  border: 0px;
+}
+
+.app .flat-btn.google-btn {
+  background: @googleplus;
+  color: white; 
+  border: 0px;
+}
+
+.app .flat-btn.facebook-btn:hover, .app .flat-btn.twitter-btn:hover, .app .flat-btn.google-btn:hover {
+  opacity: 0.90;
+}
+
+.app .flat-icon {
+  border: 1px solid @cookin-active;
+  .border-radius (4px);
+  padding: 4px 14px;
+  color: @cookin-text;
+  line-height: 2em;
+  margin-right: 12px;
+  background: none;
+  outline: none;
+  text-decoration: none;
+}
+
+.app .flat-icon:hover {
+  text-decoration: none;
+  background: @cookin-active;
+}
+
+.app .flat-icon i {
+  opacity: 0.8;
+  position: relative;
+  top: 3px;
+  line-height: 1em;
+  font-size: 1.6em;
+}
+
+.app .flat-icon:hover i {
+  opacity: 1;
+}
+
+.app .flat-btn-toggle a, .app .flat-btn-toggle button {
+  font-size: 1.2em;
+  font-weight: 200;
+  padding: 8px 12px;
+  color: @cookin-text;
+  margin-left: -4px;
+  border: 1px solid @cookin-active;
+  background: none;
+  display: inline-block;
+  line-height: 20px;
+  outline: none;
+}
+
+.app .flat-btn-toggle a:first-child, .app .flat-btn-toggle button:first-child {
+  border-right: 0px;
+  .border-radius (4px 0px 0px 4px);
+  margin-left: 0px;
+}
+
+.app .flat-btn-toggle a:last-child, .app .flat-btn-toggle button:last-child {
+  border-left: 0px;
+  .border-radius (0px 4px 4px 0px);
+}
+
+.app .flat-btn-toggle a:hover, .app .flat-btn-toggle a.active, .app .flat-btn-toggle button:hover, .app .flat-btn-toggle button.active {
+  background: @cookin-active;
+  text-decoration: none;
+}
+
+.app .flat-icon.disabled {
+  cursor: default;
+  opacity: 0.8;
+}
+
+.app .flat-icon.disabled:hover {
+  background: none;
+}
+
+.app .flat-icon.disabled i {
+  opacity: 0.2;
+}
+
+.app .flat-icon.disabled:hover i {
+  color: #333;
+}
+
+/* Inputs and Textareas */
+
+input[type="text"].flat-input, input[type="password"].flat-input, input[type="email"].flat-input {
+  .box-shadow (none);
+  border: 1px dashed @cookin-active;
+  font-weight: 200;
+  height: auto;
+  text-shadow: 0px;
+  -webkit-transition: background .2s, border linear .2s;
+  -moz-transition: background .2s, border linear .2s;
+  -o-transition: background .2s, border linear .2s;
+  transition: background .2s, border linear .2s;
+  color: @cookin-text;
+  background: none;
+}
+
+input[type="text"].flat-input:hover, input[type="password"].flat-input:hover, input[type="email"].flat-input:hover {
+  cursor: pointer;
+  background: @cookin-active;
+  color: black;
+}
+
+input[type="text"].flat-input:focus, input[type="password"].flat-input:focus, input[type="email"].flat-input:focus {
+  cursor: text;
+  background: @cookin-active;
+  color: black;
+}
+
+input[type="text"].small-input, input[type="password"].small-input, input[type="email"].small-input {
+  padding: 6px 10px;
+  font-size: 1em;
+}
+
+input[type="text"].normal-input, input[type="password"].normal-input, input[type="email"].normal-input {
+  padding: 8px 12px;
+  font-size: 1.2em;
+}
+
+input.uneditable-input {
+  cursor: text;
+}
+
+.flat-textarea {
+  display: block;
+  width: 100%;
+  .box-shadow (none);
+  resize: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  margin-bottom: 0px;
+  font-weight: 200;
+  .box-sizing (border-box);
+  color: @cookin-text;
+  line-height: 1.8em;
+  overflow: hidden;
+  border: 1px dashed @cookin-active;
+  -webkit-transition: background .2s, box-shadow .2s;
+  -moz-transition: background .2s, box-shadow .2s;
+  -o-transition: background .2s, box-shadow .2s;
+  transition: background .2s, box-shadow .2s;
+}
+
+.flat-textarea:hover {
+  cursor: pointer;
+  background: @cookin-active;
+}
+
+.flat-textarea:focus {
+  cursor: text;
+  background: @cookin-active;
+  border-color: @cookin-active;
+  .box-shadow (none);
+}
+
+/* Spinner */
+
+.spinner {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
+}
+
+.spinner img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Scroll Bar */
+
+/* Aplicar només a webkit Windows */
+
+body ::-webkit-scrollbar {
+  width: 6px !important;
+  height: 8px;
+  position: relative;
+  right: 10px;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: @cookin-active;
+}
+
+::-webkit-scrollbar-track-piece:vertical:start { 
+  background: rgba(0, 0, 0, 0.0);
+}
+
+::-webkit-scrollbar-track-piece:vertical:end { 
+  background: rgba(0, 0, 0, 0.0);
+}
+
+/* Wrappers */
+
+.wrapper, .open-sideBox .wrapper.sideBox-wrapper, .open-sideBox .wrapper.navbar-wrapper {
+  width: 1170px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.open-sideBox .wrapper {
+  padding-left: 524px;
+  width: 656px;
+}
+
+@media all and (max-width: 1220px) {
+  .wrapper, .open-sideBox .wrapper.sideBox-wrapper, .open-sideBox .wrapper.navbar-wrapper {
+    width: 936px;
+    padding: 0 10px;
+    margin: 0 auto;
+  } 
+  .open-sideBox .wrapper {
+    padding-left: 513px;
+    width: 422px;
+  }
+}
+
+@media all and (max-width: 1100px) {
+  .wrapper, .open-sideBox .wrapper.sideBox-wrapper, .open-sideBox .wrapper.navbar-wrapper {
+    width: 836px;
+    padding: 0 10px;
+    margin: 0 auto;
+    display: block;
+  } 
+  .open-sideBox .wrapper {
+    display: none;
+  }
+}
+
+@media all and (max-width: 860px) {
+  .wrapper, .open-sideBox .wrapper.sideBox-wrapper, .open-sideBox .wrapper.navbar-wrapper {
+    width: 700px;
+    padding: 0 10px;
+    margin: 0 auto;
+  } 
+}
+
+@media all and (max-width: 720px) {
+  .wrapper, .open-sideBox .wrapper.sideBox-wrapper, .open-sideBox .wrapper.navbar-wrapper {
+    width: 500px;
+    padding: 0 10px;
+    margin: 0 auto;
+  } 
+}
+
+@media all and (max-width: 530px) {
+  .wrapper, .open-sideBox .wrapper.sideBox-wrapper, .open-sideBox .wrapper.navbar-wrapper {
+    width: 90%;
+    padding: 0 5%;
+    margin: 0 auto;
+  } 
+}
+
+

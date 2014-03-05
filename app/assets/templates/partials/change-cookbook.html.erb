@@ -1,0 +1,17 @@
+<div id="moveCookbook">
+  <div class="modal-header">
+    <a href="" title="Close" class="pull-right close-modal" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></a>
+    <h3>Move recipe to...</h3>
+  </div>
+  <div class="modal-body">
+    <form class="form-search">
+      <input type="text" class="input-block-level flat-input normal-input" placeholder="Search cookbooks" ng-model="searchText">
+      <div ng-repeat="cookbook in cookbooks | orderBy:'created_at':'reverse' | filter:searchText">
+        <a href="" ng-click="updateCookbook(cookbook.id)"
+           class="flat-btn normal-btn {{isActive(cookbook.id) ? 'active' : ''}}">
+          {{cookbook.title}}
+        </a>
+      </div>
+    </form>
+  </div>
+</div>

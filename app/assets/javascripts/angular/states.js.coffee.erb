@@ -1,0 +1,61 @@
+'use strict'
+
+# Defines the application states using the ui-router AngularJS module.
+states = ($stateProvider, $urlRouterProvider) ->
+
+  rootState =
+    name: 'rootState'
+    abstract: true
+    templateUrl: '<%= asset_path("layout.html") %>'
+    controller: 'BaseCtrl'
+    resolve:
+      current_user: ($http) ->
+        $http.get 'api/current_user'
+
+  cookbooksState =
+    name: 'cookbooks'
+    parent: rootState
+    url: '/'
+    views:
+      header:
+        templateUrl: '<%= asset_path("partials/cookbooks-header.html") %>'
+        controller: 'CookbooksHeaderCtrl'
+      main:
+        templateUrl: '<%= asset_path("cookbooks.html") %>'
+        controller: 'CookbooksCtrl'
+        resolve:
+          cookbooks: (Cookbook) ->
+            Cookbook.query()
+
+  cookbookState =
+    name: 'cookbook'
+    parent: rootState
+    url: '/cookbooks/:cookbookId'
+    views:
+      header:
+        templateUrl: '<%= asset_path("partials/cookbook-header.html") %>'
+        controller: 'CookbookHeaderCtrl'
+      main:
+        templateUrl: '<%= asset_path("cookbook.html") %>'
+        controller: 'CookbookCtrl'
+        resolve:
+          cookbook: (Cookbook, $stateParams) ->
+            Cookbook.get {id: $stateParams.cookbookId}
+
+  recipeState =
+    name: 'recipe'
+    parent: cookbookState
+    url: '/recipes/:recipeId'
+    templateUrl: '<%= asset_path("cookbook.recipe.html") %>'
+    controller: 'RecipeCtrl'
+
+  $stateProvider
+    .state(rootState)
+    .state(cookbooksState)
+    .state(cookbookState)
+    .state(recipeState)
+
+  $urlRouterProvider.otherwise('/')
+
+angular.module('cookinme.states', ['ui.router']).
+  config ['$stateProvider', '$urlRouterProvider', states]
