@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :user do
     username "Guybrush Threepwood"
     sequence(:email) { |n| "guybrush#{n}@example.com"}
-    password "a"*8
+    password "logMeIn"
 
     factory :user_with_avatar do
       avatar {
