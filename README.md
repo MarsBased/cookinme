@@ -47,6 +47,8 @@ You need to create a YAML file under config named application (config/applicatio
 * FACEBOOK_SECRET
 * GOOGLE_KEY
 * GOOGLE_SECRET
+* FACEBOOK_CALLBACK_DOMAIN
+* GOOGLE_CALLBACK_DOMAIN
 
 The application is not dependant on any of this keys but don't expect the application to manage failure if you try to use one of the services without the proper configuration.
 

@@ -72,7 +72,7 @@ Rails.application.config.sorcery.configure do |config|
 
   config.facebook.key = ENV["FACEBOOK_KEY"]
   config.facebook.secret = ENV["FACEBOOK_SECRET"]
-  config.facebook.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=facebook"
+  config.facebook.callback_url = "http://#{ENV["FACEBOOK_CALLBACK_DOMAIN"]}/oauth/callback?provider=facebook"
   config.facebook.user_info_mapping = {email: "email", username: "name"}
   config.facebook.access_permissions = ["email", "publish_stream"]
   #
@@ -83,7 +83,7 @@ Rails.application.config.sorcery.configure do |config|
   #
   config.google.key = ENV["GOOGLE_KEY"]
   config.google.secret = ENV["GOOGLE_SECRET"]
-  config.google.callback_url = "http://localhost:3000/oauth/callback?provider=google"
+  config.google.callback_url = "http://#{ENV["GOOGLE_CALLBACK_DOMAIN"]}/oauth/callback?provider=google"
   config.google.user_info_mapping = {:email => "email", :username => "name"}
 
   # --- user config ---
